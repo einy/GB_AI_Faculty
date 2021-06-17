@@ -1,9 +1,11 @@
-rev, exp = map(float, input("Введите значения выручки и издержек фирмы (через пробел): ").split())
-if rev > exp:
-    print(f"Фирма получает прибыль. Рентабельность выручки: {round(100*(rev-exp)/rev,1)}%")
-    headcount = int(input("Введите численность сотрудников фирмы: "))
-    print(f"Прибыль на одного сотрудника: {(rev-exp)/headcount}")
-elif rev < exp:
-    print("Фирма несет убыток")
+my_list = [7, 5, 3, 3, 2]
+print(f"Исходный список: {my_list}")
+x = int(input("Введите целое число для вставки в список: "))
+if x <= my_list[len(my_list) - 1]:
+    my_list.append(x)
 else:
-    print("Выручка равна издержкам - работаем просто так???")
+    for i, a in enumerate(my_list):
+        if x > a:
+            break
+    my_list = my_list[:i] + [x] + my_list[i:]
+print(f"Список после вставки: {my_list}")

@@ -1,15 +1,13 @@
-#ver2
-while True:
-    s = input("Введите целое число: ")
-    if s.isdigit() or s[0]=="-" and s[1:].isdigit():
-        break
-    print("Это было не целое число! Попробуйте снова.")
-
-while True:
-    s = input("Введите вещественное число: ")
-    try:
-        float(s)
-        print("Это было вещественное число, спасибо!")
-        break
-    except ValueError:
-        print("Это было не вещественное число! Попробуйте снова.")
+my_list = [3, 3.14, "строка", True, None, [5, 6, [7, 8]], tuple("строковая_константа"), set('множество'),
+           dict(Имя='Иван', Фамилия='Петров')]
+for i, a in enumerate(my_list):
+    aname = str(type(a)).split("'")[1]
+    print(f"{i}-й элемент списка имеет тип {aname} и значение {a} ")
+    if aname in ("list", "tuple", "set", "dict"):
+        print("Это элемент списочного типа -> выводим его элементы:")
+        if aname == "dict":
+            for key, value in a.items():
+                print(f"    Ключ: {key}, значение: {value}")
+        else:
+            for j, b in enumerate(a):
+                print(f"    Номер элемента: {j}, значение: {b} ")
