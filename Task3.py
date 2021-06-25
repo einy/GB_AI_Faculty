@@ -1,7 +1,2 @@
-def my_func(x1, x2, x3):
-    temp = [x1, x2, x3]
-    temp.remove(min(temp))
-    return sum(temp)
-
-
-print(my_func(2, 2, 2))
+my_list = [i for i in range(20, 241) if i % 20 == 0 or i % 21 == 0]
+print(my_list)

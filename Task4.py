@@ -1,19 +1,7 @@
-def my_func(x, y):
-    try:
-        xx = float(x)
-        yy = int(y)
-    except ValueError:
-        return "ОШИБКА. Ошибка преобразования типов"
-    if xx <= 0:
-        return "ОШИБКА. Основание должно быть положительным!"
-    if yy >= 0:
-        return "ОШИБКА. Степень должна быть целой и отрицательной!"
-    temp = 1
-    for i in range(-yy):
-        temp = temp * xx
-    return 1 / temp
+my_list = [2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]
+my_list2 = [my_list[i] for i in range(len(my_list)) if
+            my_list[i] not in my_list[:i] + my_list[-(len(my_list) - i - 1):] or my_list[i] not in my_list[
+                                                                                                   :i] and i == len(
+                my_list) - 1]
+print(my_list2)
 
-
-x = input("Введите основание: ")
-y = input("Введите целую отрицательную степень: ")
-print(f"Результат возведения в степень: {my_func(x,y)}")
