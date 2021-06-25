@@ -1,10 +1,11 @@
-def divide(a, b):
-    try:
-        c = a / b
-    except ZeroDivisionError:
-        return "ОШИБКА. Второе число не должно быть нулем!"
-    return c
+from sys import argv
 
-a = int(input("Введите первое число: "))
-b = int(input("Введите второе число: "))
-print(f"Результат деления первого числа на второе: {divide(a,b)}")
+if len(argv) != 4:
+    print("ОШИБКА. Ожидается 3 аргумента командной строки!")
+    exit(255)
+try:
+    (x, y, z) = map(float, [argv[1], argv[2], argv[3]])
+except:
+    print("ОШИБКА. Данные должны быть вещественными числами!")
+    exit(255)
+print(f"Результат расчета: {x*y+z}")

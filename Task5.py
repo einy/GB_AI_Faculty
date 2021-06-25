@@ -1,14 +1,9 @@
-def supersum():
-    global sum
-    s = input("Введите числа, разделенные пробелом. Спецсимвол, заканчивающий суммирование - '!': ").split()
-    i = 0
-    while (i < len(s)) and (s[i] != "!"):
-        sum += int(s[i])
-        i += 1
-    print(f"Текущая сумма: {sum}")
-    return i == len(s)
+from functools import reduce
 
 
-sum = 0
-while supersum():
-    pass
+def product(x, y):
+    return x * y
+
+
+my_list = [i for i in range(100, 1001, 2)]
+print(reduce(product, my_list))
