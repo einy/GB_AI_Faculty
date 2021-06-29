@@ -1,3 +1,6 @@
-my_list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
-my_list2 = [my_list[i + 1] for i in range(len(my_list) - 1) if my_list[i + 1] > my_list[i]]
-print(my_list2)
+with open('text_2.txt', 'r', encoding='utf-8') as f:
+    my_line = f.readlines()
+    enum_obj = enumerate(my_line)
+    for i, s in enum_obj:
+        print(f"Строка №{i+1} - {len(s.split())} слов")
+    print(f"Всего строк в файле: {i+1}")
