@@ -1,12 +1,29 @@
-from random import randint
+class Stationery:
+    def __init__(self, t):
+        self.title = t
 
-with open('text_5.txt', 'w', encoding='utf-8') as f:
-    checksum = 0
-    for _ in range(1000):
-        x = randint(0, 100)
-        f.write(str(x) + " ")
-        checksum += x
-    print(f"Сумма числе в файле (при формировании файла): {checksum}")
-with open('text_5.txt', 'r', encoding='utf-8') as f:
-    ls = (f.readlines()[0]).split()
-    print(f"Сумма числе в файле (при чтении из файла): {sum(map(int,ls))}")
+    def draw(self):
+        print("Это ДЕФОЛТНЫЙ метод отрисовки")
+
+
+class Pen(Stationery):
+    def draw(self):
+        print(f"Это метод отрисовки объекта PEN с наименованием \"{self.title}\"")
+
+
+class Pencil(Stationery):
+    def draw(self):
+        print(f"Это метод отрисовки объекта PENCIL с наименованием \"{self.title}\"")
+
+
+class Handle(Stationery):
+    def draw(self):
+        print(f"Это метод отрисовки объекта HANDLE с наименованием \"{self.title}\"")
+
+
+pen1 = Pen("Ручка Parker")
+pen1.draw()
+pencil1 = Pencil("Карандаш Koh-i-Noor")
+pencil1.draw()
+handle1 = Handle("Маркер Bic")
+handle1.draw()
